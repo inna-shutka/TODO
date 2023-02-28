@@ -1,0 +1,31 @@
+@use '../components/utils' as u;
+@use './variables' as v;
+
+*,
+*:after,
+*::before {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+
+html {
+  background-color: v.$color-white;
+}
+
+body, input, button, textarea, select {
+  font-family: v.$primary-font;
+}
+
+.container {
+  width: 100%;
+  max-width: 1366px;
+  padding: 0px;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  @include u.media('desktop-wide') {
+    max-width: 100%;
+  }
+}
