@@ -1,0 +1,26 @@
+@use '../components/utils' as u;
+@use '../config/variables' as v;
+
+.main {
+    min-height: 100vh;
+    padding: 188px 16px;
+    @include u.flex(center, center, column);
+    @include u.media('tablet-wide'){
+        padding: 140px 24px;
+    }
+    &__task-list {
+        max-width: 800px;
+        @include u.flex(center, center, column);
+        gap: 15px;
+    }
+    &__title {
+        @include u.text(u.rem(16), 500, v.$color-grey, 19px, v.$primary-font);
+        align-self: flex-start;
+        text-transform: uppercase;
+        padding-left: 24px;
+    }
+    &__todo-list {
+        @include u.flex(center, center, column);
+        gap: 2px;
+    }
+}

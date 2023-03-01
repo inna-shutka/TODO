@@ -10,11 +10,13 @@
 }
 
 html {
-  background-color: v.$color-white;
+  background-color: v.$color-bg;
+  font-size: v.$base-font-size;
 }
 
 body, input, button, textarea, select {
   font-family: v.$primary-font;
+  color: v.$base-font-color;
 }
 
 .container {
