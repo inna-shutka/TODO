@@ -3,7 +3,12 @@
 @use './config/common';
 
 
-@use './components/title';
+@use './components/header';
+@use './components/form-header';
+@use './components/task-list';
+@use './components/task';
+@use './components/actions';
+@use './components/popup';
 
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');

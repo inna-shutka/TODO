@@ -1,0 +1,39 @@
+@use '../components/utils' as u;
+@use '../config/variables' as v;
+
+.task {
+    width: 100%;
+    min-height: 48px;
+    background: v.$color-white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    @include u.flex(flex-start, center);
+    transition: all 0.3s ease 0s;
+    @include u.media('tablet-wide') {
+        padding: 14px 20px;
+    }
+    &__done {
+        background: v.$light-blue;
+    }
+    &__delete {
+        transform: translateY(8rem) rotateZ(20deg);
+        opacity: 0;
+        transition: all 0.5s linear 0s;
+    }
+    &__content {
+        width: 100%;
+    }
+    &__content-text {
+        width: 80%;
+        @include u.text(u.rem(16), 500, v.$base-font-color, 19px, v.$primary-font);
+        background-color: inherit;
+        &::placeholder {
+            @include u.text(u.rem(16), 500, v.$base-font-color, 19px, v.$primary-font);
+            background-color: inherit;
+        }
+    }
+    &__actions {
+        @include u.flex(flex-end, center);
+        gap: 16px;
+    }
+}

@@ -1,0 +1,106 @@
+@use '../components/utils' as u;
+@use '../config/variables' as v;
+
+.popup {
+    display: none;
+    &__wrapper {
+        position: fixed;
+        padding: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(29, 40, 70, 0.37);
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        @include u.flex(center, center);
+    }
+    &__content {
+        width: 320px;
+        height: 140px;
+        @include u.flex(center, center, column);
+        background-color: v.$color-white;
+        padding: 16px 16px 24px 16px;
+        border-radius: 4px;
+    }
+    &__close {
+        @include u.flex(flex-end, center);
+        align-self: flex-end;
+        background-color: inherit;
+        border: none;
+        outline: none;
+    }
+    &__icon {
+        width: 20px;
+        height: 20px;
+        fill: v.$color-grey;
+        padding: 2px;
+        background-color: inherit;
+        border-radius: 50%;
+        transition: all 0.3s ease 0s;
+        }
+    &__icon:hover {
+        fill: v.$blue-2;
+    }
+    &__text {
+        @include u.text(u.rem(12), 400, v.$base-font-color, 14px, v.$primary-font);
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    &__buttons {
+        @include u.flex(center, center);
+        gap: 16px;
+    }
+    &__button {
+        @include u.flex(center, center);
+        padding: 9px 16px;
+        width: 80px;
+        height: 32px;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        transition: all 0.3s ease 0s;
+    }
+    &__button--no {
+        @include u.text(u.rem(12), 500, v.$base-blue, 14px, v.$primary-font);
+        box-shadow: 0 0 0 1px u.$base-blue;
+        background-color: transparent;
+    }
+    &__button--no:hover {
+        color: v.$blue-2;
+        box-shadow: 0 0 0 1px v.$blue-2;
+    }
+    &__button--no:focus {
+        color: v.$base-blue;
+        box-shadow: 0 0 0 2px v.$light-blue;
+    }
+    &__button--no:disabled {
+        color: v.$light-grey;
+        box-shadow: 0 0 0 1px v.$light-grey;
+    }
+    &__button--yes {
+        @include u.text(u.rem(12), 500, v.$color-white, 14px, v.$primary-font);
+        box-shadow: 0 0 0 1px u.$base-blue;
+        background-color: v.$base-blue;
+    }
+    &__button--yes:hover {
+        color: v.$color-white;
+        background-color: v.$blue-2;
+        box-shadow: 0 0 0 1px v.$blue-2;
+    }
+    &__button--yes:focus {
+        color: v.$color-white;
+        background-color: v.$base-blue;
+        box-shadow: 0 0 0 2px v.$light-blue;
+    }
+    &__button--yes:disabled {
+        color: v.$color-white;
+        background-color: v.$light-grey;
+        box-shadow: 0 0 0 1px v.$light-grey;
+    }
+}
+
+.popup-active {
+    display: block;
+}

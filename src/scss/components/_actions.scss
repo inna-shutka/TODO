@@ -1,0 +1,68 @@
+@use '../components/utils' as u;
+@use '../config/variables' as v;
+
+.checkbox {
+    position: relative;
+    @include u.flex(flex-start, center);
+    cursor: pointer;
+    &__input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        &:checked + .checkbox__button {
+            background-color: v.$base-blue;
+            box-shadow: 0 0 0 1px u.$base-blue;
+        }
+        &:checked + .checkbox__button .checkbox__icon {
+            opacity: 1;
+        }
+    }
+    &__button {
+        width: 20px;
+        height: 20px;
+        @include u.flex(center, center);
+        box-shadow: 0 0 0 1px v.$light-grey;
+        border-radius: 4px; 
+        transition: all 0.3s ease 0s;
+    }
+    &__button:hover {
+        box-shadow: 0 0 0 1px v.$base-blue;
+    }
+    &__button:focus {
+        box-shadow: 0 0 0 2px v.$light-blue;
+    }
+    &__icon {
+        display: block;
+        width: 14px;
+        height: 14px;
+        fill: v.$color-white;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+}
+
+.delete {
+    // width: 24px;
+    // height: 24px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    @include u.flex(center, center);
+    text-align: center;
+    &__icon {
+        width: 24px;
+        height: 24px;
+        fill: v.$color-grey;
+        transition: all 0.3s ease 0s;
+    }
+    &__icon:hover {
+        fill: v.$base-blue;
+    }
+    &__icon:focus {
+        fill: v.$color-grey;
+        box-shadow: 0 0 0 2px v.$light-blue;
+    }
+    &__icon:disabled {
+        fill: v.$light-grey;
+    }
+}

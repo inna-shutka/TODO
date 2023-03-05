@@ -1,0 +1,79 @@
+@use '../components/utils' as u;
+@use '../config/variables' as v;
+
+.form-header {
+    @include u.flex(center, flex-start, column);
+    gap: 10px;
+    padding: 0px;
+    @include u.media('tablet-wide') {
+        @include u.flex(flex-end, center);
+    }
+    &__input {
+        width: 343px;
+        height: 40px;
+        background: v.$color-white;
+        border: none;
+        outline: none;
+        box-shadow: 0px 0px 0px 1px v.$light-grey;
+        border-radius: 4px;
+        padding: 12px;
+        @include u.text(u.rem(14), 400, v.$base-font-color, 17px, v.$primary-font);
+        
+    }
+    &__input:hover {
+        box-shadow: 0px 0px 0px 1px v.$light-grey-2;
+    }
+    &__input:focus {
+        box-shadow: 0px 0px 0px 1px v.$base-blue;
+    }
+    &__input:disabled {
+        background: v.$color-bg;
+        box-shadow: 0px 0px 0px 1px v.$color-bg;
+        cursor:no-drop;
+    }
+    &__input::placeholder {
+        @include u.text(u.rem(14), 400, v.$light-grey, 17px, v.$primary-font);
+    }
+    &__btn-submit {
+        width: 115px;
+        height: 24px;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        background-color: inherit;
+        @include u.flex(flex-end, center);
+        gap: 2px;
+        padding: 2px;
+        text-align: center;
+        @include u.text(u.rem(14), 500, v.$light-grey, 17px, v.$primary-font);
+        cursor: pointer;
+    }
+    &__btn-submit:hover {
+        color: v.$blue-2;
+    }
+    &__btn-submit:hover .form-header__icon-plus {
+        fill: v.$blue-2;
+    }
+    &__btn-submit:focus {
+        box-shadow: 0px 0px 0px 2px v.$light-blue;
+        color: v.$base-blue;
+    }
+    &__btn-submit:focus .form-header__icon-plus {
+        fill: v.$base-blue;
+    }
+    &__btn-submit:active {
+        color: v.$base-blue;
+    }
+    &__btn-submit:active .form-header__icon-plus {
+        fill: v.$base-blue;
+    }
+    &__btn-submit:disabled {
+        color: v.$light-grey;
+        cursor:no-drop;
+    }
+    &__icon-plus {
+        width: 16px;
+        height: 16px;
+        fill:v.$light-grey;
+    }
+}
